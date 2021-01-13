@@ -1,0 +1,87 @@
+<div class="container-fluid bg pt-5">
+    <div class="row side-space">
+        <div class="column" *ngFor="let item of _apiService.selectedPlayersList | slice: 0:5">
+            <div class="card">
+                <div class="card-body red pb-0 px-2 pt-2" [ngClass]="item.Bet == randomBetNumber ? 'green' : 'red'">
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <div class="item">
+                                <span *ngIf="item.Price >= 500" class="badge">
+                                    <img src="assets/images/badge.png" alt="" />
+                                </span>
+                                <img class="imgBorder" [src]="item['Profile Image']" alt="" width="40px"
+                                    height="40px" />
+                            </div>
+                        </div>
+                        <div class="col-8 px-2">
+                            <p class="mb-0 card-title">{{ item.Name }}</p>
+                            <!-- <small class="text-muted">{{item.Level}}</small><br> -->
+                        </div>
+                        <div class="col-7 mb-3">
+                            <img src="assets/images/money.png" alt="" /> <span class="text-muted"> {{ item.Price
+                                }}</span>
+                        </div>
+                        <div class="col-5">
+                            <img src="assets/images/casino.png" alt="" /> <span class="text-muted"> {{ item.Bet
+                                }}</span>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <img src="assets/images/trophy.png" alt="" /> <span class="text-muted"> {{ item.Wins
+                                }}</span>
+                        </div>
+                    </div>
+                    <button class="btn py-0" [ngClass]="item.Bet == randomBetNumber ? 'greenBg' : 'redBg'">
+                        {{ item.Bet == randomBetNumber ? "WINNER" : "LOSE" }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row side-space my-4">
+        <div class="col text-center">
+            <button class="btn large-btn">{{ randomBetNumber }}</button>
+        </div>
+    </div>
+    <div class="row side-space" style="margin-left: 100px">
+        <div class="column mr-4" *ngFor="let item of _apiService.selectedPlayersList | slice: 5:9">
+            <div class="card">
+                <div class="card-body pb-0 px-2 pt-2" [ngClass]="item.Bet == randomBetNumber ? 'green' : 'red'">
+                    <div class="row">
+                        <div class="col-4 mb-3">
+                            <div class="item">
+                                <span *ngIf="item.Price >= 500" class="badge">
+                                    <img src="assets/images/badge.png" alt="" />
+                                </span>
+                                <img class="imgBorder" [src]="item['Profile Image']" alt="" width="40px"
+                                    height="40px" />
+                            </div>
+                        </div>
+                        <div class="col-8 px-2">
+                            <p class="mb-0 card-title">{{ item.Name }}</p>
+                            <!-- <small class="text-muted">{{item.Level}}</small><br> -->
+                        </div>
+                        <div class="col-7 mb-3">
+                            <img src="assets/images/money.png" alt="" /> <span class="text-muted"> {{ item.Price
+                                }}</span>
+                        </div>
+                        <div class="col-5">
+                            <img src="assets/images/casino.png" alt="" /> <span class="text-muted"> {{ item.Bet
+                                }}</span>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <img src="assets/images/trophy.png" alt="" /> <span class="text-muted"> {{ item.Wins
+                                }}</span>
+                        </div>
+                    </div>
+                    <button class="btn py-0" [ngClass]="item.Bet == randomBetNumber ? 'greenBg' : 'redBg'">
+                        {{ item.Bet == randomBetNumber ? "WINNER" : "LOSE" }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button [routerLink]="['/leaderBoard']" class="btn backButton px-4 py-1">
+    BACK
+</button>
