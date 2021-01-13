@@ -1,0 +1,92 @@
+.sidebar {
+  background: #ebf0f2;
+  padding: 50px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.item {
+  position: relative;
+  padding-top: 10px;
+  display: inline-block;
+}
+
+.custom-padding {
+  padding: 10px;
+  text-transform: capitalize;
+  letter-spacing: 0.3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  width: 18.4%;
+}
+
+.bottomFix {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #ebf0f2;
+}
+
+.rightside {
+  background: #f1f4f6;
+  padding: 50px;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-search {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.search-class {
+  border: 0;
+  border-bottom: 1px solid lightgrey;
+  background: transparent;
+}
+
+.search-class:focus {
+  outline: none !important;
+}
+
+.table .thead th {
+  border: 10px solid #f1f4f6;
+  background: #ebf0f2;
+  text-align: center;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid lightgray;
+  font-weight: bold;
+  text-align: center;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+input:focus,
+input.form-control:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}

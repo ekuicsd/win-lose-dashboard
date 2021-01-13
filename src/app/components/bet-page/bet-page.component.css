@@ -1,0 +1,87 @@
+.bg {
+  background-image: url("../../../assets/images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.backButton {
+  background: #0a001b;
+  border: 2px solid #f2c14a;
+  color: #f2c14a;
+  letter-spacing: 0.2rem;
+  position: fixed;
+  bottom: 6%;
+  left: 3%;
+}
+
+.side-space {
+  padding: 0 250px;
+}
+
+.card {
+  width: 170px;
+  border-radius: 5%;
+  line-height: 1;
+}
+
+.red {
+  border-radius: 5%;
+  border: 1.5px solid rgb(192, 36, 36);
+}
+
+.green {
+  border-radius: 5%;
+  border: 2px solid rgb(26, 161, 26);
+}
+
+.redBg {
+  background: rgb(192, 36, 36);
+}
+
+.greenBg {
+  background: rgb(26, 161, 26);
+}
+
+.imgBorder {
+  border-radius: 10%;
+}
+
+.greenBg,
+.redBg {
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.large-btn {
+  background: #0a001b;
+  border: 4px solid #f2c14a;
+  color: #f2c14a;
+  border-radius: 50%;
+  font-size: 60px;
+  font-weight: bold;
+  height: 130px;
+  width: 130px;
+}
+
+.column {
+  width: 20%;
+}
+
+.badge {
+  top: -5px;
+  right: -15px;
+}
+
+p {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+span {
+  font-size: 13px;
+}

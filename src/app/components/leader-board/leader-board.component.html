@@ -1,0 +1,98 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 sidebar">
+            <img class="mb-5 center" src="assets/images/dice.png" alt="">
+            <hr>
+            <h6 *ngIf="this._apiService.selectedPlayersList.length > 0" class="text-muted my-3">Playing
+                {{this._apiService.selectedPlayersList.length}}</h6>
+            <div class="row mb-4" *ngFor="let item of this._apiService.selectedPlayersList">
+                <div class="col-md-3 text-center">
+                    <div class="item">
+                        <span *ngIf="item.Price >= 500" class="badge">
+                            <img src="assets/images/badge.png" alt="">
+                        </span>
+                        <img [src]="item['Profile Image']" alt="" width="50px" height="50px">
+                    </div>
+                </div>
+                <div class="col-md-6 pt-2">
+                    <b>{{item.Name}}</b>
+                    <div class="row">
+                        <div class="col-5 pr-0">
+                            <img src="assets/images/trophy.png" alt=""> <span class="text-muted"> {{item.Wins}}</span>
+                        </div>
+                        <div class="col-7">
+                            <img src="assets/images/casino.png" alt=""> <span class="text-muted"> {{item.Bet}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pt-3 text-right pl-0">
+                    <img src="assets/images/money.png" alt="">
+                    <b> {{item.Price}}</b>
+                </div>
+            </div>
+            <div class="row bottomFix">
+                <div class="col">
+                    <button (click)="navigateToBetPage()" class="btn blueColor custom-padding">START</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9 rightside">
+            <h3 class="blueTextColor mb-5">Select Playing 9</h3>
+            <div class="row mb-4">
+                <div class="col-4">
+                    <div class="form-group has-search">
+                        <i class="material-icons form-control-search" style="font-size:24px">search</i>
+                        <input type="text" [(ngModel)]="searchByName" class="form-control search-class"
+                            placeholder="Search Players">
+                    </div>
+                </div>
+                <div class="col-5"></div>
+                <div class="col-3 text-right">
+                    <select (change)="changeSorting($event)" class="form-control custom-select">
+                        <option selected value="Price Desc">Price Desc</option>
+                        <option value="Price Asc">Price Asc</option>
+                        <option value="Bet Desc">Bet Desc</option>
+                        <option value="Bet Asc">Bet Asc</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col table-responsive">
+                    <table class="table">
+                        <thead class="thead">
+                            <tr>
+                                <th scope="col">SELECT</th>
+                                <th scope="col" class="text-left">PLAYER NAME</th>
+                                <!-- <th scope="col">LEVEL</th> -->
+                                <th scope="col">AVATAR</th>
+                                <th scope="col"><img src="assets/images/casino.png" alt=""> BET</th>
+                                <th scope="col"><img src="assets/images/trophy.png" alt=""> WINS</th>
+                                <th scope="col">LOST</th>
+                                <th scope="col"><img src="assets/images/money.png" alt=""> PRICE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                *ngFor="let item of PlayersList | search : searchByName | slice: (page-1) * pageSize : page * pageSize">
+                                <th scope="row">
+                                    <input (change)="addToSelectedList($event, item)" type="checkbox">
+                                </th>
+                                <td class="text-left">{{item.Name}}</td>
+                                <!-- <td class="text-muted">{{item.Level}}</td> -->
+                                <td>
+                                    <img [src]="item['Profile Image']" alt="" width="40px" height="40px">
+                                </td>
+                                <td>{{item.Bet}}</td>
+                                <td class="text-muted">{{item.Wins}}</td>
+                                <td class="text-muted">{{item.Lost}}</td>
+                                <td>{{item.Price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ngb-pagination class="d-flex justify-content-end" [(page)]="page" [pageSize]="pageSize"
+                        [collectionSize]="PlayersList.length"></ngb-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
