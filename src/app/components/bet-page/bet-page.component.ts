@@ -12,6 +12,7 @@ export class BetPageComponent implements OnInit {
 
   randomBetNumber = '';
   playersList: Players[] = [];
+  state = 'Calculating...'
 
   constructor(public _apiService: ApiService,
     private _router: Router) { }
@@ -20,11 +21,14 @@ export class BetPageComponent implements OnInit {
     if (this._apiService.selectedPlayersList.length == 0) {
       this._router.navigate(['/']);
     }
-    this.randomBetNumber = Math.floor((Math.random() * 9) + 1).toString();
     this._apiService.curruntPlayersList$.subscribe(res => {
       this.playersList = res;
     });
-    this.updateValues();
+    setTimeout(() => { 
+      this.randomBetNumber = Math.floor((Math.random() * 9) + 1).toString();
+      this.updateValues();
+      this.state = 'Results';
+    }, 2000);
   }
 
   updateValues() {
