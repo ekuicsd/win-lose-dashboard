@@ -32,7 +32,10 @@
             </div>
             <div class="row bottomFix">
                 <div class="col">
-                    <button (click)="navigateToBetPage()" class="btn blueColor custom-padding">START</button>
+                    <button [disabled]="_apiService.selectedPlayersList.length !== 9"
+                     [routerLink]="['/bet']" class="btn blueColor custom-padding">
+                     START
+                    </button>
                 </div>
             </div>
         </div>

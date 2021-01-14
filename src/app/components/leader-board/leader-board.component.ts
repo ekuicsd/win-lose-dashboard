@@ -33,14 +33,6 @@ export class LeaderBoardComponent implements OnInit {
     });
   }
 
-  navigateToBetPage() {
-    if (this._apiService.selectedPlayersList.length !== 9) {
-      alert("Selected Players should be 9.");
-    } else {
-      this._router.navigate(['/bet']);
-    }
-  }
-
   addToSelectedList(data, item) {
     let isChecked = data.target.checked;
     if (isChecked) {
